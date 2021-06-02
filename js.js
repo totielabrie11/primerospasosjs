@@ -9,12 +9,19 @@ console.log(nombre);
 
 let edad = prompt("ingrese su edad");
 edad = parseInt(edad); //para este caso, me sirve mas ParseInt  Number
-console.log(edad)
+console.log(edad);
 
-let estadoCivil = prompt("ingrese su estaod civil")
-console.log(estadoCivil)
+let estadoCivil = prompt("ingrese su estaod civil");
+console.log(estadoCivil);
 
-let alerta = alert("Gracias " + nombre + " por tu respuesta, Tu tienes " + edad + " años y te encuentras actualmente " + estadoCivil);
 
+if (edad >= 18 && estadoCivil == ("soltero" || "soltera")) { 
+    alert("Bienvenido " + nombre + " estas autorizado a ingresar a este contenido " + " con el fin de que dejes de ser " + estadoCivil)
+} else if (edad >= 18 && estadoCivil == ("casado" || "casada")) {
+    alert("puedes ingresar " + nombre + " a ver el contenido, bajo tus propios riesgos")
+}
+ else {
+    alert("hola " + nombre + " No reunes los requisitos para ingresar a este sitio")
+}
 
 
