@@ -67,7 +67,37 @@ while (i <= NumeroDias) {
         } else alert("Su triangulo es Isoceles")      
     } */
 
+/* var suma = function(numero1 , numero2){
+    var numero1 = parseFloat(document.getElementById("numero1").value);
+    var numero2 = parseFloat(document.getElementById("numero2").value);
     
+    var resultado = numero1 + numero2;
+    return resultado;
+} */
+let nombre = prompt("ingrese su nombre");   //bot con switch - no acepta condicional pero acepta valor y si hay conicidencia lo valida o pasa al que sigue. al meterlo en un while siempre vuelve a preguntar para validar un valor;
+let msj
+
+while (msj !=="chau") {
+    msj = prompt("ingrese un mensaje");
+
+    switch (msj) {
+        case "hola":
+            alert("hola " + nombre);
+            break
+        
+        case "fecha":
+            alert(new Date().toLocaleString());
+            break;
+
+        case "chau":
+            alert("Hasta luego " + nombre);
+            break;
+        
+        default: 
+          alert("mensaje invalido")
+    }
+}
+
 
 
 
