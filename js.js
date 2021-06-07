@@ -41,11 +41,34 @@ console.log(DiasDeSemana)
 for ( i = 0; i <= DiasDeSemana.length - 1; i++ ) {    //ciclo for
     document.write( DiasDeSemana[i] + "<br><br>");
 } */
-var DiasDeSemana = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
+
+
+/* var DiasDeSemana = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo"];
 var NumeroDias = DiasDeSemana.length - 1;
 var i = 0;
 
 while (i <= NumeroDias) {
     document.write( DiasDeSemana[i] + "<br><br>");   //ciclo while
     i++;
-}
+} */
+
+/* let confirmacion = confirm("Desea conocer que tipo de triangulo es el suyo");
+    if (confirmacion) {
+        let lado1 = parseFloat(prompt("Ingrese el angulo del primero lado del triangulo"));
+        console.log (lado1);
+        let lado2 = parseFloat(prompt("Ingrese el angulo del segundo lado del triangulo"));
+        console.log (lado2);
+        let lado3 = parseFloat(prompt("Ingrese el angulo del tercer lado del triangulo"));
+        console.log (lado3);
+        if ((lado1 === lado2) && (lado2 === lado3) && (lado3 === lado1)){
+            alert("su triangulo es Equilatero");
+        } else if ((lado1 !== lado2) && (lado1 !== lado3) && (lado3 !== lado2)){
+            alert("su triangulo es Escaleno")
+        } else alert("Su triangulo es Isoceles")      
+    } */
+
+    
+
+
+
+    
