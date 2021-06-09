@@ -74,7 +74,7 @@ while (i <= NumeroDias) {
     var resultado = numero1 + numero2;
     return resultado;
 } */
-let nombre = prompt("ingrese su nombre");   //bot con switch - no acepta condicional pero acepta valor y si hay conicidencia lo valida o pasa al que sigue. al meterlo en un while siempre vuelve a preguntar para validar un valor;
+/* let nombre = prompt("ingrese su nombre");   //bot con switch - no acepta condicional pero acepta valor y si hay conicidencia lo valida o pasa al que sigue. al meterlo en un while siempre vuelve a preguntar para validar un valor;
 let msj
 
 while (msj !=="chau") {
@@ -96,8 +96,24 @@ while (msj !=="chau") {
         default: 
           alert("mensaje invalido")
     }
-}
+} */
 
+//Hacer una encuesta a 5 personas de los temas de abajo usando todo lo aprendido.
+// Nombre
+// Sexo: Varones/mujeres. (Si alguien quiere sumar generos no binarias tambien puede)
+// Educacion: Secundaria/terciaria/universitaria/
+// Trabaja: si/no
+// En caso de trabajar: sueldo
+// La encuesta debera mostrar por consola los resultados finales que seran:
+// Cantidad de varones, cantidad de mujeres.
+// Sueldo promedio de varones y sueldo promedio de mujeres
+// Cuantos tienen secundaria, cuantos terciaria y cuantos univeristaria
+// Nombre del mayor sueldo y del menor sueldo
+// Aca no solo se usan los temas vistos sino, que se pone a prueba la logica de cada uno. Importante hacer una programacion limpia y ordenada.
+// Ayuda spoiler:
+// Se tienen que declarar variables para los resultados e ir guardando la informacion de cada dato.
+// Se tienen que hacer las 5 preguntas 5 veces, una para cada encuestado.
+// Despues de cada respuesta se hacen los calculos y se actualizan las variables declaradas como globales para los resultados.
 
 
 
