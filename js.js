@@ -4,25 +4,25 @@ let edad = 37;
 let estadoCivil = "soltero"; */
 
 
-//let nombre = prompt("ingrese su nombre");
-//console.log(nombre);
+/* let nombre = prompt("ingrese su nombre");
+console.log(nombre);
 
-//let edad = prompt("ingrese su edad");
-//edad = parseInt(edad); //para este caso, me sirve mas ParseInt  Number
-//console.log(edad);
+let edad = prompt("ingrese su edad");
+edad = parseInt(edad); //para este caso, me sirve mas ParseInt  Number
+console.log(edad);
 
-//let estadoCivil = prompt("ingrese su estaod civil");
-//console.log(estadoCivil);
+let estadoCivil = prompt("ingrese su estaod civil");
+console.log(estadoCivil);
 
 
-//if (edad >= 18 && estadoCivil == ("soltero" || "soltera")) { 
-//    alert("Bienvenido " + nombre + " estas autorizado a ingresar a este contenido " + " con el fin de que dejes de ser " + estadoCivil)
-//} else if (edad >= 18 && estadoCivil == ("casado" || "casada")) {
-//    alert("puedes ingresar " + nombre + " a ver el contenido, bajo tus propios riesgos")
-//}
-// else {
-//    alert("hola " + nombre + " No reunes los requisitos para ingresar a este sitio")
-//}
+if (edad >= 18 && estadoCivil == ("soltero" || "soltera")) { 
+    alert("Bienvenido " + nombre + " estas autorizado a ingresar a este contenido " + " con el fin de que dejes de ser " + estadoCivil)
+} else if (edad >= 18 && estadoCivil == ("casado" || "casada")) {
+    alert("puedes ingresar " + nombre + " a ver el contenido, bajo tus propios riesgos")
+}
+ else {
+    alert("hola " + nombre + " No reunes los requisitos para ingresar a este sitio")
+} */
 
 //var amigos = ["carlos", "tito", "pichiman",];
 //var amigos1 = ["totielabrie", "pocha", "angie", "soledad"];
@@ -74,6 +74,9 @@ while (i <= NumeroDias) {
     var resultado = numero1 + numero2;
     return resultado;
 } */
+
+
+
 /* let nombre = prompt("ingrese su nombre");   //bot con switch - no acepta condicional pero acepta valor y si hay conicidencia lo valida o pasa al que sigue. al meterlo en un while siempre vuelve a preguntar para validar un valor;
 let msj
 
@@ -116,5 +119,28 @@ while (msj !=="chau") {
 // Despues de cada respuesta se hacen los calculos y se actualizan las variables declaradas como globales para los resultados.
 
 
+  
+let nombre = prompt("ingrese su nombre");
+console.log(nombre);
+let mensajeus; 
+let tipoDeProceso;
 
+while (mensajeus !=="ESQ") {
     
+
+let tipoDeProceso = prompt("Hola Que tipo de proceso vas a realizar 1) Dosificación    2) Vacio")
+console.log(tipoDeProceso);
+
+if (tipoDeProceso == ("dosificacion" || "dosificación" || "Dosificacion" || "Dosificación")) {
+    tipoDeProceso = "dosificacion"
+    console.log(tipoDeProceso)
+    alert("Perfecto " + nombre + " bienvenido al selector inteligente para bombas de dosificación");
+    }else if (tipoDeProceso == ("vacio" || "vacío" || "2" || "2)")){
+    tipoDeProceso = "vacio"
+    console.log(tipoDeProceso)
+    alert("Perfecto " + nombre + " bienvenido al selector inteligente para bombas de vacio");
+    }else {
+    alert("Lo lamento " + nombre + " no has ingresado datos correctos, vuelva a intentar");
+    mensajeus = prompt("ingrese ESQ para salir o enter para continuar") ;
+    }
+}
