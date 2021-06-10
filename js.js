@@ -125,10 +125,10 @@ console.log(nombre);
 let mensajeus; 
 let tipoDeProceso;
 
-while ((mensajeus !=="ESQ") || (tipoDeProceso !=="vacio") (tipoDeProceso !=="dosificacion")) {
+while ((mensajeus !=="ESQ") || (tipoDeProceso !=="vacio") || (tipoDeProceso !=="dosificacion")) {
     
 
-let tipoDeProceso = prompt("Hola Que tipo de proceso vas a realizar 1) Dosificación    2) Vacio")
+let tipoDeProceso = prompt("Hola " + nombre + " Que tipo de proceso vas a realizar 1) Dosificación    2) Vacio")
 console.log(tipoDeProceso);
 
 if (tipoDeProceso == ("dosificacion" || "dosificación" || "Dosificacion" || "Dosificación")) {
