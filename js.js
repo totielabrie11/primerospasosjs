@@ -122,25 +122,78 @@ while (msj !=="chau") {
   
 let nombre = prompt("ingrese su nombre");
 console.log(nombre);
-let mensajeus; 
-let tipoDeProceso;
+let tipoDeProceso = " ";
+let mensaje = " ";
+let desplazamiento = 0;
+let tipoDeVacio = " ";
+let caudal = 0;
+let contraPresion = 0;
+let tipoDeAccionamiento = " ";
+let resultadoDeTuBusqueda = " ";
 
-while ((mensajeus !=="ESQ") || (tipoDeProceso !=="vacio") || (tipoDeProceso !=="dosificacion")) {
-    
 
-let tipoDeProceso = prompt("Hola " + nombre + " Que tipo de proceso vas a realizar 1) Dosificación    2) Vacio")
+tipoDeProceso = prompt("Hola " + nombre + " Que tipo de proceso vas a realizar 1) Dosificación    2) Vacio")
 console.log(tipoDeProceso);
 
-if (tipoDeProceso == ("dosificacion" || "dosificación" || "Dosificacion" || "Dosificación")) {
-    tipoDeProceso = "dosificacion"
-    console.log(tipoDeProceso)
-    alert("Perfecto " + nombre + " bienvenido al selector inteligente para bombas de dosificación");
-    }else if (tipoDeProceso == ("vacio" || "vacío" || "2" || "2)")){
-    tipoDeProceso = "vacio"
-    console.log(tipoDeProceso)
-    alert("Perfecto " + nombre + " bienvenido al selector inteligente para bombas de vacio");
+
+    
+    switch (tipoDeProceso) {
+        case "dosificacion":
+            alert("Perfecto " + nombre + " bienvenido al selector inteligente para bombas de dosificación");
+            tipoDeProceso = "dosificacion"
+            console.log(tipoDeProceso)
+            break;
+        
+        case "vacio":
+            alert("Perfecto " + nombre + " bienvenido al selector inteligente para bombas de vacio");
+            tipoDeProceso = "vacio"
+            console.log(tipoDeProceso)
+            break;
+
+        case "chau":
+            alert("Hasta luego " + nombre);
+            break;
+        
+        default: 
+            alert("Lo lamento " + nombre + " no has ingresado datos correctos, solo acepto dosificacion o vacio");
+            mensaje = prompt("ingrese ESQ para salir o enter para continuar");
+        
+        
+        }/* Lamentablmente el While no me funciono. O ingresas los datos validos o te saca y tenes que recargar. */
+
+    if (tipoDeProceso == "vacio"){
+        tipoDeVacio = prompt("Que tipo de vacio necesita alcanzar   1) alto vacio   2) residual");
+        desplazamiento = Number(prompt("que desplazamiento necesita obtener (ingrese numero mayor a 0 menor a 8000"));
+        selectorVacio();
+    
+    }else if(tipoDeProceso == "dosificacion"){
+        caudal = Number(prompt("que caudal lts/h necesita en su dosificacion (ingrese numero mayor a 0 y menor a 1200"));
+        contraPresion = Number(prompt("ingrese la contrapresion kg/cm2 que existe en el punto de inyeccion"));
+        selectorDosificador();
+    }
+
+console.log(desplazamiento)
+console.log(tipoDeVacio)
+console.log(caudal)
+console.log(contraPresion)
+console.log(tipoDeAccionamiento)
+
+function selectorVacio(){
+    if (desplazamiento <= 400 && tipoDeVacio == "alto vacio"){
+        alert("Usted ha seleccionado una bomba de vacio de baño por aceite")
+    }else if (desplazamiento >= 400 && tipoDeVacio == "residual"){
+        alert("Usted ha seleccionado una bomba de vacio de anillo liquido o sello por agua")
     }else {
-    alert("Lo lamento " + nombre + " no has ingresado datos correctos, vuelva a intentar");
-    mensajeus = prompt("ingrese ESQ para salir o enter para continuar") ;
+        alert("su busqueda no encuadra en ningún material que podamos ofrecer")
     }
 }
+
+/* function selectorDosificador(){
+    if () {
+
+    }else if () {
+
+    }else{
+
+    }
+} */
