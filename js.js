@@ -119,38 +119,26 @@ while (msj !=="chau") {
 // Despues de cada respuesta se hacen los calculos y se actualizan las variables declaradas como globales para los resultados.
 
 
-
-/* function selectorDosificador(){
-    if () {
-
-    }else if () {
-
-    }else{
-
-    }
-} */
-
 class Persona {
-    constructor(name, email) {
-      this.name = name;
-      this.email = email;
+    constructor(nombre, apellido, edad) {
+      this.nambre = nombre;
+      this.apellido = apellido;
+      this.edad = Number((edad));
     }
-  
-    mostrarNombre() {
-      console.log(this.name);
-    }
-  }
+    
+}
   
   const baseDedatos = [];
   
   let inputValues = {
     nombre: '',
-    email: ''
+    apellido: '',
+    edad:0,
+    email: '',
+    pais:''
   };
   
   const capturarInputValue = evento => {
-    // console.log(evento.target.value);
-    // console.log(evento.target.name);
     inputValues = {
       ...inputValues,
       [evento.target.name]: evento.target.value
@@ -160,9 +148,8 @@ class Persona {
   const enviarBaseDeDatos = evento => {
     evento.preventDefault();
   
-    const persona = new Persona(inputValues.nombre, inputValues['email']);
+    const persona = new Persona(inputValues.nombre, inputValues.apellido, inputValues.edad, inputValues['email'], inputValues.pais);
   
-    persona.mostrarNombre();
   
     baseDedatos.push(persona);
   
@@ -170,10 +157,47 @@ class Persona {
   };
   
   const inputNombre = document.querySelector('input[name="nombre"]');
+  const inputApellido = document.querySelector('input[name="apellido"]');
+  const inputEdad = document.querySelector('input[name="edad"]')
   const inputEmail = document.querySelector('input[name="email"]');
+  const inputPais = document.querySelector('input[name="pais"]');
   const btnEnviar = document.querySelector('.btn-enviar');
   
   inputNombre.addEventListener('input', capturarInputValue);
+  inputApellido.addEventListener('input', capturarInputValue);
+  inputEdad.addEventListener('input', capturarInputValue);
   inputEmail.addEventListener('input', capturarInputValue);
-  btnEnviar.addEventListener('click', enviarBaseDeDatos);
+  inputPais.addEventListener('input', capturarInputValue);
+  btnEnviar.addEventListener('click', enviarBaseDeDatos); 
   
+  guardarLocalStorage();
+  obtenerLocalStorage();
+
+  function guardarLocalStorage(){
+    let persona = {
+        nombre: "",
+        apellido: "",
+        edad: 0,
+        otrosdatos: {
+            email: "",    
+            pais: ""
+        }
+    };
+    let nombre =""
+    localStorage.setItem( "nombre", nombre );
+    localStorage.setItem( "persona", JSON.stringify(persona) );
+}
+
+function obtenerLocalStorage(){
+
+    if(localStorage.getItem("nombre")){
+
+        let nombre = localStorage.getItem("nombre");
+        console.log(nombre);
+        let persona = JSON.parse(localStorage.getItem("persona"));
+        console.log(persona);
+
+    }else{
+        console.log("no hay entradas en el local storage")
+    }
+}
