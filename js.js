@@ -208,7 +208,7 @@ function obtenerLocalStorage(){
 const formularioUser = document.querySelector('#formulario');
 const listaActividadesUser = document.querySelector('#listaActividades');
 let arrayActividades = [];
-
+console.log(arrayActividades);
 //funciones
 
 const CrearItem = (actividad) => {
@@ -220,6 +220,11 @@ const CrearItem = (actividad) => {
     
     return item;
 }
+
+const GuardarLS = () => {
+
+    localStorage.setItem('rutina', JSON.stringify(arrayActividades));
+}
 //Eventlistener
 
 formularioUser.addEventListener('submit', (e) => {
@@ -228,6 +233,7 @@ formularioUser.addEventListener('submit', (e) => {
     let actividadUser = document.querySelector('#actividad__input').value;
     
     CrearItem(actividadUser);
+    GuardarLS();
 
     formularioUser.reset();
     });
