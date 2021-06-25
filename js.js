@@ -227,5 +227,7 @@ formularioUser.addEventListener('submit', (e) => {
     e.preventDefault();
     let actividadUser = document.querySelector('#actividad__input').value;
     
-    console.log(actividadUser);
-});
+    CrearItem(actividadUser);
+
+    formularioUser.reset();
+    });
