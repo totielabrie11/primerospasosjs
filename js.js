@@ -225,6 +225,21 @@ const GuardarLS = () => {
 
     localStorage.setItem('rutina', JSON.stringify(arrayActividades));
 }
+
+const PintarDom = () => {
+    
+    listaActividadesUser.innerHTML = '';
+
+    arrayActividades = JSON.parse(localStorage.getItem('rutina'));
+
+    if(arrayActividades === null){
+        arrayActividades = [];
+    }else {
+        arrayActividades.forEach(element => {
+            console.log(element);
+        });
+    }
+}
 //Eventlistener
 
 formularioUser.addEventListener('submit', (e) => {
@@ -236,4 +251,6 @@ formularioUser.addEventListener('submit', (e) => {
     GuardarLS();
 
     formularioUser.reset();
-    });
+});
+
+document.addEventListener('DOMContentLoaded', PintarDom); //funcion o mas bien evento, que sirve para pintar todo lo que viene del local storage
