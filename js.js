@@ -220,11 +220,12 @@ const CrearItem = (actividad) => {
     
     return item;
 }
-let trotar = CrearItem('trotar');
-let caminar = CrearItem('caminar');
-let garchar = CrearItem('garchar');
-
-
-console.log(arrayActividades)
-
 //Eventlistener
+
+formularioUser.addEventListener('submit', (e) => {
+
+    e.preventDefault();
+    let actividadUser = document.querySelector('#actividad__input').value;
+    
+    console.log(actividadUser);
+});
