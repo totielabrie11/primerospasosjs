@@ -119,7 +119,7 @@ while (msj !=="chau") {
 // Despues de cada respuesta se hacen los calculos y se actualizan las variables declaradas como globales para los resultados.
 
 
-class Persona {
+/* class Persona {
     constructor(nombre, apellido, edad) {
       this.nambre = nombre;
       this.apellido = apellido;
@@ -200,4 +200,31 @@ function obtenerLocalStorage(){
     }else{
         console.log("no hay entradas en el local storage")
     }
+} */
+
+//Ejercicio de crear las rutinas de ejercicios para el GYM
+
+//Variables Globales
+const formularioUser = document.querySelector('#formulario');
+const listaActividadesUser = document.querySelector('#listaActividades');
+let arrayActividades = [];
+
+//funciones
+
+const CrearItem = (actividad) => {
+    let item = {
+        actividad: actividad,
+        estado: false
+    }
+    arrayActividades.push(item);
+    
+    return item;
 }
+let trotar = CrearItem('trotar');
+let caminar = CrearItem('caminar');
+let garchar = CrearItem('garchar');
+
+
+console.log(arrayActividades)
+
+//Eventlistener
