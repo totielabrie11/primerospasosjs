@@ -268,7 +268,7 @@ listaActividadesUser.addEventListener('click', (e) => {
    //tambien puedes utilizar mouseEvent para encontrar los nodechilds con console.log(e)
 
     if(e.target.innerHTML === 'done' || e.target.innerHTML === 'delete'){
-        let contenido = e.path[2].childNodes[1].innerHTML);
+        let contenido = e.path[2].childNodes[1].innerHTML;
         if(e.target.innerHTML === 'delete'){
         //accion de eliminar
         EliminarLS(contenido);
@@ -276,4 +276,4 @@ listaActividadesUser.addEventListener('click', (e) => {
 
         }
     }
-};
+});
