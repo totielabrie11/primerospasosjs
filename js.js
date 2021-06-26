@@ -209,8 +209,9 @@ const formularioUser = document.querySelector('#formulario');
 const listaActividadesUser = document.querySelector('#listaActividades');
 let arrayActividades = [];
 console.log(arrayActividades);
-//funciones
 
+
+//funciones
 const CrearItem = (actividad) => {
     let item = {
         actividad: actividad,
@@ -229,7 +230,15 @@ const GuardarLS = () => {
 }
 
 const EliminarLS = (actividad) => {
-console.log(actividad);
+    let indexArray;
+    arrayActividades.forEach((elemento, index) => {
+        if(elemento.actividad === actividad){
+            indexArray = index;   
+        }
+    });
+    
+    arrayActividades.splice(indexArray,1);
+    GuardarLS();
 }
 
 const PintarDom = () => {
@@ -246,6 +255,14 @@ const PintarDom = () => {
         });
     }
 }
+
+/* const EditarLS = (actividad) => {
+
+    let indexArray = arrayActividades.findIndex((elemento)=>elemento.actividad === actividad);
+    
+    console.log(arrayActividades[indexArray]);
+
+} */
 //Eventlistener
 
 formularioUser.addEventListener('submit', (e) => {
@@ -273,6 +290,7 @@ listaActividadesUser.addEventListener('click', (e) => {
         //accion de eliminar
         EliminarLS(contenido);
         }if(e.target.innerHTML === 'done'){
+        EditarLS();
 
         }
     }
