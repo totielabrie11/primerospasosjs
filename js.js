@@ -228,6 +228,10 @@ const GuardarLS = () => {
     PintarDom();
 }
 
+const EliminarLS = (actividad) => {
+console.log(actividad);
+}
+
 const PintarDom = () => {
     
     listaActividadesUser.innerHTML = '';
@@ -238,20 +242,7 @@ const PintarDom = () => {
         arrayActividades = [];
     }else {
         arrayActividades.forEach(element => {
-            listaActividadesUser.innerHTML += `<div class="alert alert-danger" role="alert">
-            <i class="material-icons me-3 float-start">
-              accessibility_new
-            </i>
-            <b>${element.actividad}</b> - ${element.estado}
-            <span class="float-end">
-              <i class="material-icons">
-                done
-              </i>
-              <i class="material-icons">
-                delete
-             </i>
-            </span>
-          </div>`
+            listaActividadesUser.innerHTML += `<div class="alert alert-danger" role="alert"><i class="material-icons me-3 float-start">accessibility_new</i><b>${element.actividad}</b> - ${element.estado}<span class="float-end"><i class="material-icons">done</i><i class="material-icons">delete</i></span></div>`
         });
     }
 }
@@ -269,3 +260,20 @@ formularioUser.addEventListener('submit', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', PintarDom); //funcion o mas bien evento, que sirve para pintar todo lo que viene del local storage
+
+listaActividadesUser.addEventListener('click', (e) => {
+
+    e.preventDefault();
+   //console.log(e.target.innerHTML); para poder visualizar todo el campo o dom de nuestro HTML al pinchar con el raton
+   //tambien puedes utilizar mouseEvent para encontrar los nodechilds con console.log(e)
+
+    if(e.target.innerHTML === 'done' || e.target.innerHTML === 'delete'){
+        let contenido = e.path[2].childNodes[1].innerHTML);
+        if(e.target.innerHTML === 'delete'){
+        //accion de eliminar
+        EliminarLS(contenido);
+        }if(e.target.innerHTML === 'done'){
+
+        }
+    }
+};
