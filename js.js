@@ -224,6 +224,8 @@ const CrearItem = (actividad) => {
 const GuardarLS = () => {
 
     localStorage.setItem('rutina', JSON.stringify(arrayActividades));
+    
+    PintarDom();
 }
 
 const PintarDom = () => {
@@ -236,7 +238,20 @@ const PintarDom = () => {
         arrayActividades = [];
     }else {
         arrayActividades.forEach(element => {
-            console.log(element);
+            listaActividadesUser.innerHTML += `<div class="alert alert-danger" role="alert">
+            <i class="material-icons me-3 float-start">
+              accessibility_new
+            </i>
+            <b>${element.actividad}</b> - ${element.estado}
+            <span class="float-end">
+              <i class="material-icons">
+                done
+              </i>
+              <i class="material-icons">
+                delete
+             </i>
+            </span>
+          </div>`
         });
     }
 }
