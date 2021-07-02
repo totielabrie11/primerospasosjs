@@ -201,18 +201,18 @@ function obtenerLocalStorage(){
         console.log("no hay entradas en el local storage")
     }
 } */
-
+/////////////////////////////////////////////////////////////
 //Ejercicio de crear las rutinas de ejercicios para el GYM
-
+////////////////////////////////////////////////////////////
 //Variables Globales
-const formularioUser = document.querySelector('#formulario');
+/* const formularioUser = document.querySelector('#formulario');
 const listaActividadesUser = document.querySelector('#listaActividades');
 let arrayActividades = [];
 console.log(arrayActividades);
 
-
+ */
 //funciones
-const CrearItem = (actividad) => {
+/* const CrearItem = (actividad) => {
     let item = {
         actividad: actividad,
         estado: false
@@ -254,7 +254,7 @@ const PintarDom = () => {
             listaActividadesUser.innerHTML += `<div class="alert alert-danger" role="alert"><i class="material-icons me-3 float-start">accessibility_new</i><b>${element.actividad}</b> - ${element.estado}<span class="float-end"><i class="material-icons">done</i><i class="material-icons">delete</i></span></div>`
         });
     }
-}
+} */
 
 /* const EditarLS = (actividad) => {
 
@@ -265,7 +265,7 @@ const PintarDom = () => {
 } */
 //Eventlistener
 
-formularioUser.addEventListener('submit', (e) => {
+/* formularioUser.addEventListener('submit', (e) => {
 
     e.preventDefault();
     let actividadUser = document.querySelector('#actividad__input').value;
@@ -280,10 +280,10 @@ document.addEventListener('DOMContentLoaded', PintarDom); //funcion o mas bien e
 
 listaActividadesUser.addEventListener('click', (e) => {
 
-    e.preventDefault();
+    e.preventDefault(); */
    //console.log(e.target.innerHTML); para poder visualizar todo el campo o dom de nuestro HTML al pinchar con el raton
    //tambien puedes utilizar mouseEvent para encontrar los nodechilds con console.log(e)
-
+/* 
     if(e.target.innerHTML === 'done' || e.target.innerHTML === 'delete'){
         let contenido = e.path[2].childNodes[1].innerHTML;
         if(e.target.innerHTML === 'delete'){
@@ -294,4 +294,72 @@ listaActividadesUser.addEventListener('click', (e) => {
 
         }
     }
-});
+}); */
+
+//////////////////////////////////////////////////////////////////////
+//VALIDAR INPUT PASAR AL ARRAY Y TOMAR EL VALOR DE ESTOS PARA SER USADOS
+//////////////////////////////////////////////////////////////////////
+//Vamos a hacer un formulario simple que va a guasrdar los datos en un array
+const arrayDeUsuarios = [];
+
+//Creamos un objeto que va a tener las propiedades de los inputs. Estas propiedades tienen que llamarse EXACTAMENTE igual que el atributo name que tiene cada input en el HTML (ver html). Estas propiedades inician vacios
+let inputValues = {
+  nombre: '',
+  apellido: '',
+  edad: '',
+  email: ''
+};
+
+//Funcion handleForm que va a validar los inputs y los pasa al array
+const handleForm = e => {
+  e.preventDefault();
+
+  //Validamos que los campos no esten vacios. Hay formas mas optimas de validar pero por ahora dejemoslo asi
+  if (
+    inputValues.nombre.trim() === '' ||
+    inputValues.apellido.trim() === '' ||
+    inputValues.edad.trim() === '' ||
+    inputValues.email.trim() === ''
+  ) {
+    console.log('Todos los campos deben ser completados');
+    return; //recuerden que este return lo ponemos para evitar que la funcion siga ejecutandose
+  }
+
+  //Si llega a este punto quiere decir que logró la validacion
+  console.log('Antes de pushear los datos: ', arrayDeUsuarios);
+  arrayDeUsuarios.push(inputValues);
+  console.log('Despues de pushear los datos: ', arrayDeUsuarios);
+};
+
+const handleInput = e => {
+  //Aqui viene lo "complejo", necesitamos hacer este formulario dinamico, como hacemos eso? capturando el e.target.name del elemento y buscar que coincida con alguna propiedad del objeto inputValues, es por eso que es importante que los nombres de las propiedades del objeto sean las mismas que la de los names en el html. Por ejemplo e.target.name del segundo input sera apellido, este entrara en el objeto y buscara una propiedad que sea igual, si la consigue le agregara el e.target.value que le pasamos
+
+  console.log('Soy el input donde estas escribiendo: ', e.target);
+  console.log('Soy el atributo value de ese input: ', e.target.value);
+  console.log('Soy el atributo name de ese input: ', e.target.name);
+
+  inputValues = {
+    ...inputValues, //esos ... se llama spread operator, googlear! Va a devolver una copia del objeto, dejo comentado como se veria el objeto si no tuviera eso
+    [e.target.name]: e.target.value
+  };
+
+  // inputValues = {
+  //   [e.target.name]: e.target.value
+  // }
+
+  console.log(inputValues);
+};
+
+//Los llamados de los elementos y de los eventos lo hacemos en el window.onload, pero en este editor no se puede usar asi que lo hare normal
+
+//llamamos el formulario
+const form = document.querySelector('form');
+
+//Llamamos a los inputs
+const inputs = document.querySelectorAll('.input');
+
+//hacemos el evento submit del form que va a ejecutar la funcion sendForm
+form.addEventListener('submit', handleForm);
+
+//hacemos el evento para capturar los values del input, pero como los inputs lo llamamos con un querySelectorAll tenemos que hacer una iteracion primero
+inputs.forEach(input => input.addEventListener('input', handleInput));
