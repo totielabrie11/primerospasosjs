@@ -296,7 +296,7 @@ listaActividadesUser.addEventListener('click', (e) => {
     }
 }); */
 
-//////////////////////////////////////////////////////////////////////
+/* //////////////////////////////////////////////////////////////////////
 //VALIDAR INPUT PASAR AL ARRAY Y TOMAR EL VALOR DE ESTOS PARA SER USADOS
 //////////////////////////////////////////////////////////////////////
 //Vamos a hacer un formulario simple que va a guasrdar los datos en un array
@@ -309,8 +309,8 @@ let inputValues = {
   edad: '',
   email: ''
 };
-
-//Funcion handleForm que va a validar los inputs y los pasa al array
+ */
+/* //Funcion handleForm que va a validar los inputs y los pasa al array
 const handleForm = e => {
   e.preventDefault();
 
@@ -363,3 +363,41 @@ form.addEventListener('submit', handleForm);
 
 //hacemos el evento para capturar los values del input, pero como los inputs lo llamamos con un querySelectorAll tenemos que hacer una iteracion primero
 inputs.forEach(input => input.addEventListener('input', handleInput));
+ */
+
+const btnNotify = document.getElementById("btnNotify");
+
+btnNotify.addEventListener('click', function(){
+    
+    notify();
+
+})
+
+function notify(){
+    //verificar que el navegador soporte notificaciones
+
+    if (!("Notification" in window)) {
+
+        alert('tu navegador no soporta notificaciones');
+
+    }else if(Notification.permission === "granted"){
+
+        //Lanzar notificacion si ya está autoriazado el servicio
+
+        notificacion = new Notification("Mi primer notification")
+
+    }else if(Notification.permission !== "denied"){
+
+        Notification.requestPermission(function(){
+
+            if(Notification.permission === "granted"){
+
+               const notification = new Notification("Hola Mundo")
+
+            }
+
+        })
+
+    }
+
+}
