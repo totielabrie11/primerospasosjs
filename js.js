@@ -384,7 +384,7 @@ function notify(){
 
         //Lanzar notificacion si ya está autoriazado el servicio
 
-        notificacion = new Notification("Mi primer notification")
+        notificacion = new Notification("Tienes una nueva notificacion a revisar")
 
     }else if(Notification.permission !== "denied"){
 
@@ -392,7 +392,7 @@ function notify(){
 
             if(Notification.permission === "granted"){
 
-               const notification = new Notification("Hola Mundo")
+               const notification = new Notification("Bienvenido, al servicio de notificaciones Dosivac")
 
             }
 
