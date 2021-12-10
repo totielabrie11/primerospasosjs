@@ -205,17 +205,21 @@ function obtenerLocalStorage(){
 //Ejercicio de crear las rutinas de ejercicios para el GYM
 ////////////////////////////////////////////////////////////
 //Variables Globales
-/* const formularioUser = document.querySelector('#formulario');
+const formularioUser = document.querySelector('#formulario');
 const listaActividadesUser = document.querySelector('#listaActividades');
 let arrayActividades = [];
 console.log(arrayActividades);
 
- */
+ 
 //funciones
-/* const CrearItem = (actividad) => {
+const CrearItem = (actividad) => {
+
+    const fecha = new Date().toString();
+
     let item = {
         actividad: actividad,
-        estado: false
+        estado: false,
+        fecha: fecha
     }
     arrayActividades.push(item);
     
@@ -242,7 +246,7 @@ const EliminarLS = (actividad) => {
 }
 
 const PintarDom = () => {
-    
+   
     listaActividadesUser.innerHTML = '';
 
     arrayActividades = JSON.parse(localStorage.getItem('rutina'));
@@ -250,22 +254,24 @@ const PintarDom = () => {
     if(arrayActividades === null){
         arrayActividades = [];
     }else {
+        
+        
         arrayActividades.forEach(element => {
-            listaActividadesUser.innerHTML += `<div class="alert alert-danger" role="alert"><i class="material-icons me-3 float-start">accessibility_new</i><b>${element.actividad}</b> - ${element.estado}<span class="float-end"><i class="material-icons">done</i><i class="material-icons">delete</i></span></div>`
+            listaActividadesUser.innerHTML += `<div class="alert alert-danger" role="alert"><i class="material-icons me-3 float-start">accessibility_new</i><b>${element.actividad}</b> - ${element.estado}<span class="float-end"><div class="float-start">${element.fecha}</div><i class="material-icons">done</i><i class="material-icons">delete</i></span></div>`
         });
     }
-} */
+}
 
-/* const EditarLS = (actividad) => {
+const EditarLS = (actividad) => {
 
     let indexArray = arrayActividades.findIndex((elemento)=>elemento.actividad === actividad);
     
     console.log(arrayActividades[indexArray]);
 
-} */
+} 
 //Eventlistener
 
-/* formularioUser.addEventListener('submit', (e) => {
+formularioUser.addEventListener('submit', (e) => {
 
     e.preventDefault();
     let actividadUser = document.querySelector('#actividad__input').value;
@@ -280,10 +286,10 @@ document.addEventListener('DOMContentLoaded', PintarDom); //funcion o mas bien e
 
 listaActividadesUser.addEventListener('click', (e) => {
 
-    e.preventDefault(); */
+    e.preventDefault(); 
    //console.log(e.target.innerHTML); para poder visualizar todo el campo o dom de nuestro HTML al pinchar con el raton
    //tambien puedes utilizar mouseEvent para encontrar los nodechilds con console.log(e)
-/* 
+ 
     if(e.target.innerHTML === 'done' || e.target.innerHTML === 'delete'){
         let contenido = e.path[2].childNodes[1].innerHTML;
         if(e.target.innerHTML === 'delete'){
@@ -294,7 +300,7 @@ listaActividadesUser.addEventListener('click', (e) => {
 
         }
     }
-}); */
+});
 
 /* //////////////////////////////////////////////////////////////////////
 //VALIDAR INPUT PASAR AL ARRAY Y TOMAR EL VALOR DE ESTOS PARA SER USADOS
@@ -365,7 +371,7 @@ form.addEventListener('submit', handleForm);
 inputs.forEach(input => input.addEventListener('input', handleInput));
  */
 
-const btnNotify = document.getElementById("btnNotify");
+/* const btnNotify = document.getElementById("btnNotify");
 
 btnNotify.addEventListener('click', function(){
     
@@ -400,4 +406,4 @@ function notify(){
 
     }
 
-}
+} */
