@@ -210,21 +210,26 @@ const listaActividadesUser = document.querySelector('#listaActividades');
 let arrayActividades = [];
 console.log(arrayActividades);
 
- 
+
 //funciones
 const CrearItem = (actividad) => {
-
+    
     const fecha = new Date().toString();
+    const dia = new Date().getDate()
 
     let item = {
         actividad: actividad,
         estado: false,
-        fecha: fecha
+        fecha: fecha,
+        dia: dia
+
     }
     arrayActividades.push(item);
     
     return item;
 }
+
+
 
 const GuardarLS = () => {
 
@@ -240,10 +245,38 @@ const EliminarLS = (actividad) => {
             indexArray = index;   
         }
     });
-    
+    console.log(arrayActividades)
     arrayActividades.splice(indexArray,1);
     GuardarLS();
+    return actividad
 }
+
+(function(){
+    
+    console.log('funcion autoconvocada que resta una actividad por día')
+    arrayActividades = JSON.parse(localStorage.getItem('rutina'));
+    
+    const diaActual = new Date().getDate()
+    
+    
+    arrayActividades.forEach((x) => {
+
+        const dia = `${x.dia}` 
+        
+
+        console.log(dia)
+
+        if (dia != diaActual) {
+
+            console.log('entro a la funcion que elimina un array');
+        }else{
+            console.log('no elimino el ultimo array');
+        }
+    })
+    
+    
+
+})();
 
 const PintarDom = () => {
    
@@ -269,6 +302,7 @@ const EditarLS = (actividad) => {
     console.log(arrayActividades[indexArray]);
 
 } 
+
 //Eventlistener
 
 formularioUser.addEventListener('submit', (e) => {
